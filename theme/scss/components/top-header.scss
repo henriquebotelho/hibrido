@@ -1,0 +1,23 @@
+.top-header {
+  background-color: $colorBlack;
+  padding: 3px 0;
+
+  @include breakpoint(desktop){
+    display: none;
+  }
+
+  .container{
+      max-width: 860px;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  span {
+    color: $colorWhite;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: $fontDefault;
+  }
+}

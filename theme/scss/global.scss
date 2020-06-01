@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: $fontDefault;
+  position: relative;
+  overflow-x: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+p,
+li {
+  font-size: 16px;
+  line-height: 22px;
+  color: $colorText;
+  margin-bottom: 10px;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}

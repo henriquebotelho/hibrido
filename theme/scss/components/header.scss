@@ -1,0 +1,344 @@
+.header {
+  padding: 16px 0 0 0;
+  border-bottom: 1px solid #e8e8e8;
+
+  @include breakpoint(desktop) {
+    padding: 10px 0;
+  }
+
+  .brand {
+    display: block;
+    margin-bottom: 16px;
+
+    @include breakpoint(desktop) {
+      text-align: center;
+    }
+  }
+
+  .menu-wrapper {
+    margin-top: 30px;
+
+    @include breakpoint(desktop) {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      justify-content: flex-end;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-flex;
+        margin-left: 30px;
+        position: relative;
+        margin-bottom: 0;
+        padding-bottom: 16px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        a {
+          text-transform: uppercase;
+          font-weight: 400;
+          font-size: 15px;
+          color: $colorText;
+          transition: $transition;
+          text-decoration: none;
+
+          &:hover {
+            color: $colorTextHover;
+          }
+        }
+
+        &.destaque {
+          a {
+            font-weight: 700;
+
+            &.color1 {
+              color: #ff2400;
+
+              &:hover {
+                color: darken(#ff2400, 3%);
+              }
+            }
+            &.color2 {
+              color: #ffa500;
+
+              &:hover {
+                color: darken(#ffa500, 3%);
+              }
+            }
+          }
+        }
+
+        &.dropdown {
+          transition: $transition;
+
+          .submenu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            transition: $transition;
+            background-color: $colorWhite;
+            top: 100%;
+            right: -100px;
+            width: 585px;
+            z-index: 4000;
+            border: 1px solid #e8e8e8;
+            padding: 25px 35px;
+            text-align: left;
+
+            a {
+              display: block;
+              font-size: 15px;
+              font-weight: 400;
+              color: $colorText;
+              margin: 10px 0;
+              text-transform: none;
+              transition: $transition;
+
+              &:hover {
+                color: #bcbcbc;
+              }
+            }
+          }
+
+          &:hover {
+            .submenu {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .search-login-cart {
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+
+    @include breakpoint(desktop) {
+      display: none;
+    }
+
+    .search {
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        input[type="text"] {
+          text-align: center;
+          color: $colorText;
+          font-weight: 400;
+          height: 32px;
+          line-height: 32px;
+          padding: 0 16px;
+          border: 1px solid transparent;
+          width: 90px;
+          transition: $transition;
+          outline: none;
+
+          &:focus {
+            width: 320px;
+            border: 1px solid #bcbcbc;
+          }
+        }
+
+        button {
+          border: none;
+          background-color: transparent;
+          outline: none;
+          transition: $transition;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.6;
+          }
+
+          svg {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.facebook-login {
+  .fb_button {
+    display: block;
+    height: 35px;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 10px;
+    line-height: 33px;
+    background: url(https://korova.com.br/skin/frontend/base/default/css/magestore/fblogin/fb.png)
+      no-repeat;
+    min-width: 140px;
+    margin-left: 30px;
+    text-decoration: none;
+
+    @include breakpoint(desktop) {
+      margin-left: 0;
+    }
+
+    span {
+      color: $colorWhite;
+    }
+  }
+}
+
+.account {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+
+  a {
+    img {
+      width: 20px;
+    }
+  }
+}
+.cart {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+
+  a {
+    img {
+      width: 20px;
+    }
+  }
+}
+
+#menuToggle {
+  position: relative;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  display: none;
+  width: 100%;
+  padding: 0 15px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: -80px;
+
+  @include breakpoint(desktop) {
+    display: flex;
+  }
+
+  a {
+    text-decoration: none;
+    color: $colorBlack;
+    transition: $transition;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: tomato;
+    }
+  }
+
+  input {
+    display: block;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    -webkit-touch-callout: none;
+    position: absolute;
+  }
+
+  label {
+    z-index: 9999;
+
+    span {
+      display: block;
+      width: 33px;
+      height: 4px;
+      margin-bottom: 5px;
+      position: relative;
+      background-color: $colorBlack;
+      z-index: 1;
+      transform-origin: 4px 0px;
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+
+      &:first-child {
+        transform-origin: 0% 0%;
+      }
+
+      &:nth-last-child(2) {
+        transform-origin: 0% 100%;
+      }
+    }
+  }
+
+  input:checked ~ label {
+    position: fixed;
+  }
+
+  input:checked ~ label span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-10px, -10px);
+    background: #232323;
+  }
+
+  input:checked ~ label span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  input:checked ~ label span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+}
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 50px 30px 30px 30px;
+  background: #e8e8e8;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+  li {
+    padding: 10px 0;
+    font-size: 22px;
+    margin-bottom: 0;
+
+    &:first-child{
+      margin-top: -40px;
+    }
+
+    &.facebook-login {
+      display: inline-block;
+    }
+
+    &.account {
+      display: inline-block;
+    }
+    &.cart {
+      display: inline-block;
+    }
+  }
+}
+
+/*
+   * And let's slide it in from the left
+   */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
